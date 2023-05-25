@@ -1,0 +1,75 @@
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+.signup-big-container{
+    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+.signup-main-container{
+   box-shadow:2px 2px 5px 2px rgba(170, 159, 159, 0.903) ;
+   padding:2rem;
+   width:400px;
+   height: 500px;
+   display: flex;
+   flex-direction: column;
+  text-align: start;
+   gap:0.5rem;
+}
+.signup-name-container,
+.signup-email-container,
+.confirm-password-container ,
+.signup-password-container{
+    display: flex;
+    flex-direction: column;
+    gap:0.2rem;
+}
+.create-account-btn button{
+    color: red;
+    padding: 0.8rem;
+    text-align: center;
+     width: 100%;
+   border-radius: 5px;
+   font-size: 1.2rem;
+ 
+}
+.signup-name-container input,
+.signup-email-container input,
+.confirm-password-container input ,
+.signup-password-container input
+{
+    padding:0.4rem;
+}
+.signup-header h2{
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+.signup-name-container label,
+.signup-email-container label,
+.confirm-password-container label ,
+.signup-password-container label{
+     font-size:1.2rem;
+
+    text-transform: capitalize;
+}
+.signup-terms-condition label{
+ font-size:1.2rem;
+margin-left: 5px;
+}
+.already-account-container{
+    text-align: center;
+}
+.already-account-link{
+    text-decoration: none;
+    color:red;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+
+
+
+            

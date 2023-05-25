@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.Category-main-container{
+ 
+     display: flex; 
+  
+    gap:0.5rem;
+   width:450px;
+   height:250px;
+box-shadow: 2px 2px 0px 1px rgba(178, 166, 166, 0.316);
+background-color: white;
+border-radius: 5px;
+margin-bottom: 20px;
+}
+
+.Category-data-container{
+    display: flex;
+    background-color: white;
+}
+
+.Category-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+
+}
+/* .cat-img{
+    width:100px;
+    height: 100px;
+} */
