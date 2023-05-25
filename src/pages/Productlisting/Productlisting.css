@@ -1,0 +1,52 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(232, 227, 237, 0.974);
+    /* overflow: hidden; */
+}
+.productcard-main-container{
+     display: flex;
+    flex-direction: row;
+    gap:2rem; 
+  
+ 
+   
+}
+/* .product-main{
+    border-left: 1px solid black;
+    padding: 20px;
+    height: 100vh;
+    /* overflow-y: scroll;
+padding-bottom:130px ; */
+
+.filter{
+    width:300px;
+      border-right: 1px solid black;
+       height: 2000px; 
+    
+}
+.products{
+    display: inline-block;
+}
+.products h2{
+    text-align: start;
+    padding:10px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.product-cart-list{
+     display: flex;
+    gap:2rem;
+   
+    height:400px;
+    flex-wrap: wrap; 
+    margin-top:5px;
+    width:1200px;
+   
+     
+    
+}

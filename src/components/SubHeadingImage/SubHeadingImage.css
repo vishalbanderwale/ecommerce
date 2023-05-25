@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.sub-heading-container{
+    /* margin-left:0px;
+margin-top:0px; */
+ display: inline-block; 
+width:1200px;
+
+
+}
+.sub-heading-img{
+    width:100%;
+}
