@@ -31,6 +31,7 @@ function NavBar() {
             <button className="login-btn">login</button>
           </li>
         </ul>
+        <Link to="/cart">cart</Link>
       </div>
     </header>
   );

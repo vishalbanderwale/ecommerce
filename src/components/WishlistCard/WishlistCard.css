@@ -1,21 +1,24 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.wishlist-main-container{
-   
-    display: flex;
-    justify-content: center;
-    
-    overflow: hidden;
-    margin-top:50px;
+.wishlist-main-container {
+  display: flex;
+  justify-content: center;
+
+  overflow: hidden;
+  margin-top: 50px;
 }
-.wishlist-header{
-    margin-top:20px;
+.wishlist-header {
+  margin-top: 20px;
 }
-.wishlist-card-container{
-    border:1px solid black;
-    width:200px;
-    overflow: hidden;
+.wishlist-card-container {
+  border: 1px solid black;
+  width: 200px;
+  overflow: hidden;
+}
+.wishlist-img {
+  width: 200px;
+  height: 200px;
 }

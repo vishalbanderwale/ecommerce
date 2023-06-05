@@ -1,3 +1,6 @@
+
+
+
 export const PriceFilteredData = (products, price) => {
   return products.filter((f) => f.discountPrice <= price);
 };

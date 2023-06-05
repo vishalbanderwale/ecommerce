@@ -1,39 +1,41 @@
+import { useCallback, useContext } from "react";
 import "./CartCard.css";
+import { CartContext } from "../../Contexts/CartContext";
 
-function CartCard() {
+function CartCard({ item }) {
   return (
-     <main>
+    <main>
       <div className="cart-header">
-        <h3>my cart (0)</h3>
+        <h3>{item.length}</h3>
       </div>
-<div className="cart-big-container">
-      <div className="cart-main-container">
-        <div className="cart-media-container">
-          <img src="https://placehold.co/200x200" />
-        </div>
-
-        <div className="cart-detail-container">
-          <div className="cart-title">
-            {" "}
-            <h4>name</h4>
+      <div className="cart-big-container">
+        <div className="cart-main-container">
+          <div className="cart-media-container">
+            <img src={item.imageUrl} className="cart-img" />
           </div>
 
-          <div className="cart-price">
-            <p>price</p>
+          <div className="cart-detail-container">
+            <div className="cart-title">
+              {" "}
+              <h4>{item.title}</h4>
+            </div>
+
+            <div className="cart-price">
+              <p>{item.price}</p>
+            </div>
+            <div className="cart-quantity">
+              <p>quantity:</p>
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div className="wishlist-btn">
+              <button>move to wishlist</button>
+            </div>
+            <div className="remove-cart-btn">
+              <button>remove from cart</button>
+            </div>
           </div>
-          <div className="cart-quantity">
-            <p>quantity:</p>
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-          </div>
-          <div className="wishlist-btn">
-            <button>move to wishlist</button>
-          </div>
-          <div className="remove-cart-btn">
-            <button>remove from cart</button>
-          </div>
-        </div>
         </div>
 
         <div className="price-cart-container">
@@ -59,10 +61,9 @@ function CartCard() {
           <div className="primary-btn">
             <button>checkout</button>
           </div>
-      
+        </div>
       </div>
-     </div>
-     </main>
+    </main>
   );
 }
 
