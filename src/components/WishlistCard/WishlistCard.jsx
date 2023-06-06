@@ -3,9 +3,6 @@ import "./WishlistCard.css";
 function WishlistCard({ item }) {
   return (
     <main>
-      <div className="wishlist-header">
-        <h3>wishList:{item.length}</h3>
-      </div>
       <div className="wishlist-main-container">
         <div className="wishlist-card-container">
           <div className="wishlist-card-media">

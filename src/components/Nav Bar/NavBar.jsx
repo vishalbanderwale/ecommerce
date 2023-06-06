@@ -3,7 +3,7 @@ import "./NavBar.css";
 import { faHouse, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -31,7 +31,7 @@ function NavBar() {
             <button className="login-btn">login</button>
           </li>
         </ul>
-        <Link to="/cart">cart</Link>
+        <Link to="/wishlist">wishList</Link>
       </div>
     </header>
   );

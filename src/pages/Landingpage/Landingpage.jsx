@@ -24,8 +24,8 @@ function LandingPage() {
         <SubHeadingImage />
       </div>
       <div className="Category-data">
-        {land.map((mitem) => (
-          <Category cat={mitem} />
+        {land.map((item) => (
+          <Category cat={item} key={item._id} />
         ))}
       </div>
     </div>

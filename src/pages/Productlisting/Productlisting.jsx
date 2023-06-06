@@ -34,7 +34,7 @@ function ProductListing() {
             <h2>product list</h2>
             <div className="product-cart-list">
               {filteredData.map((m) => (
-                <ProductCard item={m} />
+                <ProductCard item={m} key={m._id} />
               ))}
             </div>
           </div>

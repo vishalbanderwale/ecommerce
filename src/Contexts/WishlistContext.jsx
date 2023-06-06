@@ -9,10 +9,10 @@ function WishlistProvider({ children }) {
   return (
     <div>
       |
-      <WishlistContext value={{ wishlistDispatch, wishlistState }}>
+      <WishlistContext.Provider value={{ wishlistDispatch, wishlistState }}>
         {" "}
         {children}
-      </WishlistContext>
+      </WishlistContext.Provider>
     </div>
   );
 }

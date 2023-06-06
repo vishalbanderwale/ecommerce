@@ -4,11 +4,12 @@ import { WishlistContext } from "../../Contexts/WishlistContext";
 
 function WishlistPage() {
   const { wishlistState } = useContext(WishlistContext);
-  const wishlistvariable = wishlistState.wishlist;
+  const { wishlist } = wishlistState;
+
   return (
     <div>
-      {wishlistvariable.map((m) => (
-        <WishlistCard item={m} />
+      {wishlist.map((m) => (
+        <WishlistCard item={m} key={m._id} />
       ))}
     </div>
   );

@@ -1,34 +1,27 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-.banner-container{
-    
-    margin-top: 50px;
-
-
+.banner-container {
+  margin-top: 50px;
+  position: relative;
 }
-.banner-img{
-    width:1200px;
-    height: 300px;
-    position: relative;
-   
+.banner-img {
+  width: 1200px;
+  height: 300px;
 }
-.shop-now-container button{
-    
-    font-size: 2rem;
-    background-color: brown;
-    position: absolute;
-    bottom:280px;
+.shop-now-container button {
+  font-size: 2rem;
+  background-color: brown;
+  position: absolute;
+  bottom: 20px;
+
   border-radius: 10px;
   padding: 0.5rem;
-   
-
 }
-.shop-now-container button:hover{
-    color:blue;
-    background-color: red;
+.shop-now-container button:hover {
+  color: blue;
+  background-color: red;
 }

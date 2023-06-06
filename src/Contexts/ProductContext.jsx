@@ -6,9 +6,8 @@ function ProductProvider({ children }) {
   const [dbData, setDbData] = useState([]);
   async function Myproduct() {
     const productresponse = await axios.get("/api/products");
-    console.log(productresponse);
+
     setDbData(productresponse.data.products);
-    console.log(dbData);
   }
   useEffect(() => {
     Myproduct();

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
@@ -12,8 +12,9 @@ import { WishlistProvider } from "./Contexts/WishlistContext";
 
 // Call make Server
 makeServer();
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     <Router>
       <WishlistProvider>
@@ -28,6 +29,5 @@ ReactDOM.render(
         </CartProvider>
       </WishlistProvider>
     </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
