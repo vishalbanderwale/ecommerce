@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import WishlistCard from "../../components/WishlistCard/WishlistCard";
-import { WishlistContext } from "../../Contexts/WishlistContext";
+import { PageContext } from "../../Contexts/PageContext";
 
 function WishlistPage() {
-  const { wishlistState } = useContext(WishlistContext);
-  const { wishlist } = wishlistState;
+  const { pageState } = useContext(PageContext);
+  const { wishlist } = pageState;
 
   return (
     <div>

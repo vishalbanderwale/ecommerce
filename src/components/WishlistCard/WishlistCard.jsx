@@ -1,6 +1,13 @@
+import { useContext } from "react";
 import "./WishlistCard.css";
+import { PageContext } from "../../Contexts/PageContext";
+import { useNavigate } from "react-router-dom";
 
+import { isInPage } from "../../Utils/IsInPage";
 function WishlistCard({ item }) {
+  const navigate = useNavigate();
+  const { pageDispatch, pageState } = useContext(PageContext);
+
   return (
     <main>
       <div className="wishlist-main-container">
@@ -15,10 +22,29 @@ function WishlistCard({ item }) {
                 <p>$1200</p>
               </div>
               <div className="remove-wishlist-btn">
-                <button>remove from wishlist</button>
+                <button
+                  onClick={() => {
+                    pageDispatch({
+                      type: "REMOVE_FROM_WISHLIST",
+                      payload: item._id,
+                    });
+                  }}
+                >
+                  remove from wishlist
+                </button>
               </div>
               <div className="add-cart-btn">
-                <button>add to cart</button>
+                <button
+                  onClick={() => {
+                    isInPage(pageState.cart, item)
+                      ? navigate("/cart")
+                      : pageDispatch({ type: "ADD_TO_CART", payload: item });
+                  }}
+                >
+                  {isInPage(pageState.cart, item)
+                    ? "go to cart"
+                    : "add to cart"}
+                </button>
               </div>
             </div>
           </div>

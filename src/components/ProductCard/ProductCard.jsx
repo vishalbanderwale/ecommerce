@@ -2,16 +2,15 @@ import { faHeart, faHeartCrack } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ProductCard.css";
 import { useContext } from "react";
-import { CartContext } from "../../Contexts/CartContext";
-import { WishlistContext } from "../../Contexts/WishlistContext";
+import { PageContext } from "../../Contexts/PageContext";
+
 import { useNavigate } from "react-router-dom";
+import { isInPage } from "../../Utils/IsInPage";
 
 function ProductCard({ item }) {
-  const { cartDispatch, cartState } = useContext(CartContext);
-  const { wishlistDispatch, wishlistState } = useContext(WishlistContext);
+  const { pageDispatch, pageState } = useContext(PageContext);
+
   const navigate = useNavigate();
-  const isInCart = cartState.cart.find((f) => f._id === item._id);
-  const isInWishlist = wishlistState.wishlist.find((f) => f.id === item._id);
 
   return (
     <div className="product-card-container">
@@ -24,9 +23,9 @@ function ProductCard({ item }) {
         <button className="heart-btn">
           <span>
             <FontAwesomeIcon
-              icon={isInWishlist ? faHeart : faHeartCrack}
+              icon={isInPage(pageState.wishlist, item) ? faHeart : faHeartCrack}
               onClick={() => {
-                wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: item });
+                pageDispatch({ type: "ADD_TO_WISHLIST", payload: item });
               }}
             />
           </span>
@@ -48,12 +47,12 @@ function ProductCard({ item }) {
         <div className="add-cart-btn">
           <button
             onClick={() => {
-              isInCart
+              isInPage(pageState.cart, item)
                 ? navigate("/cart")
-                : cartDispatch({ type: "ADD_TO_CART", payload: item });
+                : pageDispatch({ type: "ADD_TO_CART", payload: item });
             }}
           >
-            {isInCart ? "go to cart" : "add to cart"}
+            {isInPage(pageState.cart, item) ? "go to cart" : "add to cart"}
           </button>
         </div>
       </div>
@@ -61,3 +60,6 @@ function ProductCard({ item }) {
   );
 }
 export default ProductCard;
+
+//start isIncart-false-onclick-dispatch
+//true-isIncart-go-to-cart-navigate

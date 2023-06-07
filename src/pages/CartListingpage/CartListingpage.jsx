@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import CartCard from "../../components/CartCard/CartCard";
-import { CartContext } from "../../Contexts/CartContext";
+import { PageContext } from "../../Contexts/PageContext";
 
 function CartListingPage() {
-  const { cartState } = useContext(CartContext);
-  const { cart } = cartState;
+  const { pageState } = useContext(PageContext);
+  const { cart } = pageState;
 
   return (
     <div>

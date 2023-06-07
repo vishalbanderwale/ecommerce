@@ -1,7 +1,14 @@
 import { useCallback, useContext } from "react";
 import "./CartCard.css";
+import { PageContext } from "../../Contexts/PageContext";
+import { useNavigate } from "react-router-dom";
+
+import { isInPage } from "../../Utils/IsInPage";
 
 function CartCard({ item }) {
+  const navigate = useNavigate();
+  const { pageDispatch, pageState } = useContext(PageContext);
+
   return (
     <main>
       <div className="cart-header"></div>
@@ -27,10 +34,25 @@ function CartCard({ item }) {
               <button>+</button>
             </div>
             <div className="wishlist-btn">
-              <button>move to wishlist</button>
+              <button
+                onClick={() => {
+                  pageDispatch({
+                    type: "MOVE_TO_WISHLIST",
+                    payload: item,
+                  });
+                }}
+              >
+                move to wishlist
+              </button>
             </div>
             <div className="remove-cart-btn">
-              <button>remove from cart</button>
+              <button
+                onClick={() => {
+                  pageDispatch({ type: "REMOVE_FROM_CART", payload: item._id });
+                }}
+              >
+                remove from cart
+              </button>
             </div>
           </div>
         </div>
