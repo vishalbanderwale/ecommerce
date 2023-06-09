@@ -4,7 +4,7 @@ export const FilterContext = createContext();
 
 function FilterProvider({ children }) {
   const [filterState, filterDispatch] = useReducer(filterreducer, {
-    category: { men: false, women: false, kids: false },
+    category: "All",
     price: 5000,
     rating: 0,
     sort: "",

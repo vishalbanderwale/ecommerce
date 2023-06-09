@@ -1,5 +1,10 @@
-
-
+export const CategoryFilteredData = (products, category) => {
+  if (category === "All") {
+    return products;
+  } else {
+    return products.filter((f) => f.categoryName === category);
+  }
+};
 
 export const PriceFilteredData = (products, price) => {
   return products.filter((f) => f.discountPrice <= price);

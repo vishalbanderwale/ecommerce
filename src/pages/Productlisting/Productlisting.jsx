@@ -7,6 +7,7 @@ import "./Productlisting.css";
 import { ProductContext } from "../../Contexts/ProductContext";
 
 import {
+  CategoryFilteredData,
   PriceFilteredData,
   RatingFilteredData,
   SortedFilteredData,
@@ -16,10 +17,10 @@ import { FilterContext } from "../../Contexts/filterContext";
 function ProductListing() {
   const { dbData } = useContext(ProductContext);
   const {
-    filterState: { price, rating, sort },
+    filterState: { category, price, rating, sort },
   } = useContext(FilterContext);
-
-  const filteredPriceData = PriceFilteredData(dbData, price);
+  const filteredCategoryData = CategoryFilteredData(dbData, category);
+  const filteredPriceData = PriceFilteredData(filteredCategoryData, price);
   const filteredRatingData = RatingFilteredData(filteredPriceData, rating);
   const filteredSortedData = SortedFilteredData(filteredRatingData, sort);
   const filteredData = filteredSortedData;
@@ -33,9 +34,9 @@ function ProductListing() {
           <div className="products">
             <h2>product list</h2>
             <div className="product-cart-list">
-              {filteredData.map((m) => (
-                <ProductCard item={m} key={m._id} />
-              ))}
+              {filteredData.length > 0
+                ? filteredData.map((m) => <ProductCard item={m} key={m._id} />)
+                : "No Products to display"}
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import { isInPage } from "../../Utils/IsInPage";
 
 function CartCard({ item }) {
   const navigate = useNavigate();
-  const { pageDispatch, pageState } = useContext(PageContext);
+  const { pageDispatch, pageState, cartcount } = useContext(PageContext);
 
   return (
     <main>
@@ -29,9 +29,21 @@ function CartCard({ item }) {
             </div>
             <div className="cart-quantity">
               <p>quantity:</p>
-              <button>-</button>
-              <span>1</span>
-              <button>+</button>
+              <button
+                onClick={() => {
+                  pageDispatch({ type: "DECREMENT_QNTY", payload: item.title });
+                }}
+              >
+                -
+              </button>
+              <span>{pageState.cartcount}</span>
+              <button
+                onClick={() => {
+                  pageDispatch({ type: "INCREMENT_QNTY", payload: item.title });
+                }}
+              >
+                +
+              </button>
             </div>
             <div className="wishlist-btn">
               <button

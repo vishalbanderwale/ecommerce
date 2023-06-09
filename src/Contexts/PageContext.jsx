@@ -5,6 +5,7 @@ function PageProvider({ children }) {
   const [pageState, pageDispatch] = useReducer(pageReducer, {
     cart: [],
     wishlist: [],
+    cartcount: 1,
   });
   return (
     <div>

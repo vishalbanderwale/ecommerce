@@ -15,7 +15,7 @@ function SignupPage() {
   function handleInput(e) {
     e.preventDefault();
     const { name, value } = e.target;
-    setuserData((prev) => ({ ...prev, [name]: value }));
+    setuserData((prev) => ({ ...prev, [name]: value })); //name:email value:"vishal"
   }
   console.log(userData);
 
@@ -26,9 +26,11 @@ function SignupPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
       });
-      const responseResult = await response.json();
-      console.log(responseResult);
-      navigate("/login");
+      if (response.status === 201) {
+        const responseResult = await response.json();
+        console.log(responseResult);
+        navigate("/login");
+      }
     } catch (error) {
       console.log("not working");
       console.log(error);

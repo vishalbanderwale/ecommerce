@@ -1,3 +1,5 @@
+import Toast from "../components/Toast";
+
 function pageReducer(state, { type, payload }) {
   switch (type) {
     case "ADD_TO_CART":
@@ -19,6 +21,19 @@ function pageReducer(state, { type, payload }) {
         ...state,
         wishlist: [...state.wishlist, payload],
         cart: [...state.cart.filter((f) => f._id !== payload._id)],
+      };
+    case "DECREMENT_QNTY":
+      return {
+        ...state,
+
+        cartcount:
+          [...state.cart].filter((f) => f.title === payload).length - 1,
+      };
+    case "INCREMENT_QNTY":
+      return {
+        ...state,
+        cartcount:
+          [...state.cart].filter((f) => f.title === payload).length + 1,
       };
   }
 }

@@ -9,5 +9,6 @@ export default function ({ message, type }) {
     transition: Slide,
     closeOnClick: true,
     pauseOnHover: false,
+    theme: "dark",
   });
 }

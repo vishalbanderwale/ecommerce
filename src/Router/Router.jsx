@@ -19,7 +19,6 @@ function Routing() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/product/:categoryid" element={<ProductListing />} />
         <Route path="/mockman" element={<Mockmail />} />
-        <Route path="/cartitem" element={<CartListingPage />} />
       </Routes>
     </div>
   );

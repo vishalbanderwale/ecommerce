@@ -33,15 +33,16 @@
 .price-range {
   margin-top: 10px;
 }
-.filter-category {
-  text-align: start;
-}
-.filter-rating {
-  text-align: start;
-}
-.filter-sort {
-  text-align: start;
-}
+.filter-category,
+.filter-sort .filter-rating,
 .filter-container {
-  position: fixed;
+  text-align: start;
+}
+
+.price-range span {
+  padding: 0.2rem;
+}
+
+.price-slider {
+  width: 200px;
 }

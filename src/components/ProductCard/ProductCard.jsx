@@ -1,4 +1,5 @@
-import { faHeart, faHeartCrack } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faHeartCircleCheck } from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ProductCard.css";
 import { useContext } from "react";
@@ -6,11 +7,16 @@ import { PageContext } from "../../Contexts/PageContext";
 
 import { useNavigate } from "react-router-dom";
 import { isInPage } from "../../Utils/IsInPage";
+import Toast from "../Toast";
 
 function ProductCard({ item }) {
   const { pageDispatch, pageState } = useContext(PageContext);
 
   const navigate = useNavigate();
+  function handlerAddToCart(item) {
+    pageDispatch({ type: "ADD_TO_CART", payload: item });
+    Toast({ message: "added to cart", type: "success" });
+  }
 
   return (
     <div className="product-card-container">
@@ -23,9 +29,18 @@ function ProductCard({ item }) {
         <button className="heart-btn">
           <span>
             <FontAwesomeIcon
-              icon={isInPage(pageState.wishlist, item) ? faHeart : faHeartCrack}
+              icon={
+                isInPage(pageState.wishlist, item)
+                  ? faHeartCircleCheck
+                  : faHeart
+              }
               onClick={() => {
-                pageDispatch({ type: "ADD_TO_WISHLIST", payload: item });
+                isInPage(pageState.wishlist, item)
+                  ? pageDispatch({
+                      type: "REMOVE_FROM_WISHLIST",
+                      payload: item._id,
+                    })
+                  : pageDispatch({ type: "ADD_TO_WISHLIST", payload: item });
               }}
             />
           </span>
@@ -49,7 +64,7 @@ function ProductCard({ item }) {
             onClick={() => {
               isInPage(pageState.cart, item)
                 ? navigate("/cart")
-                : pageDispatch({ type: "ADD_TO_CART", payload: item });
+                : handlerAddToCart(item);
             }}
           >
             {isInPage(pageState.cart, item) ? "go to cart" : "add to cart"}

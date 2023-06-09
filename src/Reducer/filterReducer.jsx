@@ -1,5 +1,7 @@
 export const filterreducer = (state, { type, payload }) => {
   switch (type) {
+    case "CATEGORY_FILTER":
+      return { ...state, category: payload };
     case "PRICE_FILTER":
       return { ...state, price: payload };
 
@@ -10,11 +12,7 @@ export const filterreducer = (state, { type, payload }) => {
     case "CLEAR_ALL":
       return {
         ...state,
-        category: {
-          men: false,
-          women: false,
-          kids: false,
-        },
+        category: "All",
         price: 5000,
         rating: 0,
         sort: "",

@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 import { useState } from "react";
+import { toast } from "react-toastify";
+import Toast from "../../components/Toast";
 
 function LoginPage() {
   const defaultData = {
@@ -26,14 +28,16 @@ function LoginPage() {
         body: JSON.stringify(loginData),
       });
       console.log(Loginresponse);
-      const loginResult = await Loginresponse.json();
-      console.log(await loginResult);
-      const { encodedToken } = await loginResult;
-      localStorage.setItem("Token", encodedToken);
-      setloginData(defaultData);
+      if (Loginresponse.status === 200) {
+        const loginResult = await Loginresponse.json();
+        console.log(await loginResult);
+        const { encodedToken } = await loginResult;
+        localStorage.setItem("Token", encodedToken);
+        setloginData(defaultData);
 
-      navigate("/product");
-      console.log("hello");
+        navigate("/product");
+        Toast({ message: "login successfull", type: "success" });
+      }
     } catch (error) {
       console.log(error);
     }

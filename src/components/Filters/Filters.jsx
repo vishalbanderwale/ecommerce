@@ -1,10 +1,21 @@
 import { useContext } from "react";
 import "./Filters.css";
 import { FilterContext } from "../../Contexts/filterContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Filters() {
+  const navigate = useNavigate();
   const { filterState, filterDispatch } = useContext(FilterContext);
   const { price, rating, sort } = filterState;
+  const { categoryid } = useParams();
+  function handlerCategory(event, name) {
+    filterDispatch({ type: "CATEGORY_FILTER", payload: event });
+    navigate(`/product/${name}`);
+  }
+  function handlerClear() {
+    filterDispatch({ type: "CLEAR_ALL" });
+    navigate("/product");
+  }
 
   return (
     <div className="filter-main-container1">
@@ -12,9 +23,7 @@ function Filters() {
         <div className="filter-main-container">
           <div className="filter-header">
             <h3>filters</h3>
-            <p onClick={() => filterDispatch({ type: "CLEAR_ALL" })}>
-              clear all
-            </p>
+            <p onClick={() => handlerClear()}>clear all</p>
           </div>
           <div className="filter-price">
             <h3>price</h3>
@@ -45,27 +54,36 @@ function Filters() {
             <div className="men-container">
               <input
                 type="checkbox"
-                name="men"
+                name="Men"
                 id="men"
-                onChange={() => filterDispatch({ type: "MEN" })}
+                checked={"MenWatches" === categoryid}
+                onChange={(event) =>
+                  handlerCategory(event.target.name, "MenWatches")
+                }
               />
               <label>men</label>
             </div>
             <div className="women-container">
               <input
                 type="checkbox"
-                name="women"
+                name="Women"
                 id="women"
-                onChange={() => filterDispatch({ type: "WOMEN" })}
+                checked={"WomenWatches" === categoryid}
+                onChange={(event) =>
+                  handlerCategory(event.target.name, "WomenWatches")
+                }
               />
-              <label>wommen</label>
+              <label>women</label>
             </div>
             <div className="kids-container">
               <input
                 type="checkbox"
                 name="kids"
                 id="kids"
-                onChange={() => filterDispatch({ type: "kids" })}
+                checked={"Kid'sWatches" === categoryid}
+                onChange={(event) =>
+                  handlerCategory(event.target.name, "Kid'sWatches")
+                }
               />
               <label>kids</label>
             </div>
