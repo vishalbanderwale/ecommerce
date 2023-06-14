@@ -36,7 +36,7 @@ function CartCard({ item }) {
               >
                 -
               </button>
-              <span>{pageState.cartcount}</span>
+              <span>{item.quantity}</span>
               <button
                 onClick={() => {
                   pageDispatch({ type: "INCREMENT_QNTY", payload: item.title });

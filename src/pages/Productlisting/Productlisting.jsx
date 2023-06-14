@@ -20,6 +20,7 @@ function ProductListing() {
     filterState: { category, price, rating, sort },
   } = useContext(FilterContext);
   const filteredCategoryData = CategoryFilteredData(dbData, category);
+
   const filteredPriceData = PriceFilteredData(filteredCategoryData, price);
   const filteredRatingData = RatingFilteredData(filteredPriceData, rating);
   const filteredSortedData = SortedFilteredData(filteredRatingData, sort);

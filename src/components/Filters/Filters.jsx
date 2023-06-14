@@ -56,7 +56,7 @@ function Filters() {
                 type="checkbox"
                 name="Men"
                 id="men"
-                checked={"MenWatches" === categoryid}
+                checked={categoryid === "MenWatches"}
                 onChange={(event) =>
                   handlerCategory(event.target.name, "MenWatches")
                 }
@@ -68,7 +68,7 @@ function Filters() {
                 type="checkbox"
                 name="Women"
                 id="women"
-                checked={"WomenWatches" === categoryid}
+                checked={categoryid === "WomenWatches"}
                 onChange={(event) =>
                   handlerCategory(event.target.name, "WomenWatches")
                 }
@@ -80,7 +80,7 @@ function Filters() {
                 type="checkbox"
                 name="kids"
                 id="kids"
-                checked={"Kid'sWatches" === categoryid}
+                checked={categoryid === "Kid'sWatches"}
                 onChange={(event) =>
                   handlerCategory(event.target.name, "Kid'sWatches")
                 }
